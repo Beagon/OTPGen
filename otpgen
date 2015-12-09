@@ -1,0 +1,15 @@
+#!/usr/bin/env php
+<?php
+/**
+ * File: otpgen
+ * Author: Robin Rijkeboer <rmrijkeboer@gmail.com>
+ */
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include_once('vendor/autoload.php');
+
+
+use beagon\OTPGen\OTPGen;
+$application = include dirname(__FILE__) . '/application.php';
+$application->run();

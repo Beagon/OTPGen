@@ -1,0 +1,13 @@
+{
+    "name": "beagon/OTPGen",
+    "version": "0.0.1",
+    "description": "Command line tool to generate an OTP token",
+    "require": {
+        "spomky-labs/otphp": "^6.0",
+        "symfony/console": "^3.0",
+        "symfony/yaml": "^3.0"
+    },
+    "autoload": {
+        "psr-4": {"beagon\\OTPGen\\":"src/"}
+    }
+}
