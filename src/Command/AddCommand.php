@@ -8,7 +8,6 @@ namespace beagon\OTPGen\Command;
 
 use beagon\OTPGen\BaseCommand;
 use beagon\OTPGen\OTPGen;
-use OTPHP\TOTP;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;

@@ -12,5 +12,6 @@ This project was made because I found it a hassle to keep grabbing my phone to g
 ## Commands
 
 * Add an OTP token and initializes your library: `./otpgen add`
+* Delete a library entry: `./otpgen delete (NAME) or (ID)`
 * Get an OTP code: `./otpgen code (NAME) or (ID)`
 * List your OTP code library: `./otpgen library`
