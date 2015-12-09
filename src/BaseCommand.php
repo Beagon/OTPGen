@@ -49,6 +49,7 @@ abstract class BaseCommand extends Command
     }
 
     /**
+     * Just used for debug purposes, don't mind it.
      * @return string
      */
     public function getRunStats()
@@ -81,23 +82,5 @@ abstract class BaseCommand extends Command
         $normalized_path = str_replace('\\', OTPGen::$directorySeparator, $path);
 
         return $normalized_path;
-    }
-
-    /**
-     * @param string $partition
-     * @return array|null
-     */
-    public function getPartitionCriteria($partition)
-    {
-        if (!isset($this->config['data']) || !isset($this->config['data'][$partition])) {
-            return null;
-        }
-        $options = $this->config['data'][$partition];
-
-        if (isset($options['where']) && !empty($options['where'])) {
-            return $options['where'];
-        }
-
-        return null;
     }
 }
