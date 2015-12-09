@@ -48,7 +48,7 @@ class CodeCommand extends BaseCommand
         $config = OTPGen::LoadConfig();
         $keyArgument = $input->getArgument('name');
         if (!key_exists($keyArgument, $config)) {
-            $output->writeln('The key ' . $keyArgument . ' does not exist in your configs. Add it by using the addkey command.');
+            $output->writeln('The key ' . $keyArgument . ' does not exist in your library. Add it by using the add command.');
             return 0;
         }
 
