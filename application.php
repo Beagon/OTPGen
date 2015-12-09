@@ -32,7 +32,7 @@ if (!defined('OTPGEN_WORKING_DIR')) {
         $cwd = getcwd() . DIRECTORY_SEPARATOR;
         $cwd = str_replace('\\', '/', $cwd);
     } else {
-        $cwd = getenv("OTPGEN_DIR");
+        $cwd = rtrim(getenv("OTPGEN_DIR"), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
     }
     define('OTPGEN_WORKING_DIR', $cwd);
 }
