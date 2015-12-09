@@ -38,14 +38,17 @@ if (!defined('OTPGEN_WORKING_DIR')) {
  */
 
 use beagon\OTPGen\Command\CodeCommand;
+use beagon\OTPGen\Command\AddCommand;
 use beagon\OTPGen\OTPGen;
 
-$composerData = file_get_contents(__DIR__ . "/composer.json");
+$composerData = file_get_contents(__DIR__ . '/composer.json');
 $composerData = json_decode($composerData, true);
 $version = $composerData['version'];
 
 $application = new OTPGen('OTPGen', $version);
 $application->add(new CodeCommand);
+$application->add(new AddCommand);
+
 /**
  * We return it so the CLI controller in /OTPGen can run it.
  */

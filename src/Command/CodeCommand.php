@@ -48,18 +48,17 @@ class CodeCommand extends BaseCommand
         $config = OTPGen::LoadConfig();
         $keyArgument = $input->getArgument('name');
         if (!key_exists($keyArgument, $config)) {
-            $output->writeln("The key " . $keyArgument . " does not exist in your configs. Add it by using the addkey command.");
+            $output->writeln('The key ' . $keyArgument . ' does not exist in your configs. Add it by using the addkey command.');
             return 0;
         }
 
         $totp = new TOTP();
-        $totp->setLabel($keyArgument)
-             ->setDigits(6)
-             ->setDigest('sha1')
-             ->setInterval(30)
-             ->setSecret($config[$keyArgument]);
+        $totp->setDigits($config[$keyArgument]['size'])
+             ->setDigest($config[$keyArgument]['digest'])
+             ->setInterval($config[$keyArgument]['interval'])
+             ->setSecret($config[$keyArgument]['token']);
 
-        $output->writeln($totp->now());
+        $output->writeln('Your token is: <options=bold>' . $totp->now() . '</>');
 
         return 0;
     }

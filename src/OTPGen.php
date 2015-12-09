@@ -22,7 +22,7 @@ class OTPGen extends Application
      *
      * @var string
      */
-    public static $directorySeparator = "/";
+    public static $directorySeparator = '/';
 
     /**
      * Takes in an array of data, and turns it into blissful YAML using Symfony's YAML component.
@@ -52,11 +52,11 @@ class OTPGen extends Application
     public static function loadConfig()
     {
         if (!file_exists(OTPGEN_WORKING_DIR . '.otp')) {
-            throw new \RuntimeException("Directory is not a OTPGen directory: " . OTPGEN_WORKING_DIR);
+            throw new \RuntimeException('Directory is not a OTPGen directory: ' . OTPGEN_WORKING_DIR . ' or add an OTP token.');
         }
         $config = OTPGen::fromYAML(file_get_contents(OTPGEN_WORKING_DIR . '.otp'));
         if (!$config || !is_array($config)) {
-            throw new \RuntimeException("Error: " . OTPGEN_WORKING_DIR . ".otp file is not valid YAML, or is empty.");
+            throw new \RuntimeException('Error: ' . OTPGEN_WORKING_DIR . '.otp file is not valid YAML, or is empty.');
         }
 
         return $config;
