@@ -45,8 +45,10 @@ class LibraryCommand extends BaseCommand
         }
 
         $config = OTPGen::LoadConfig();
+        $count = 0;
         foreach ($config as $key => $whyBother) {
-            $output->writeln($key);
+            $output->writeln('('. $count .') ' . $key);
+            $count++;
         }
 
         return 0;

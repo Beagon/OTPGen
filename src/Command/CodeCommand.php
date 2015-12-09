@@ -30,7 +30,7 @@ class CodeCommand extends BaseCommand
             ->addArgument(
                 'name',
                 InputArgument::REQUIRED,
-                'The name the key has in the .otp file.'
+                'The name or the id of the library entry.'
             )
         ;
     }
@@ -47,9 +47,25 @@ class CodeCommand extends BaseCommand
 
         $config = OTPGen::LoadConfig();
         $keyArgument = $input->getArgument('name');
-        if (!key_exists($keyArgument, $config)) {
-            $output->writeln('The key ' . $keyArgument . ' does not exist in your library. Add it by using the add command.');
+
+        if (!key_exists($keyArgument, $config) && !is_numeric($keyArgument)) {
+            $output->writeln('The entry ' . $keyArgument . ' does not exist in your library. Add it by using the add command.');
             return 0;
+        }
+
+        if (is_numeric($keyArgument)) {
+            if (intval($keyArgument) > (count($config) - 1)) {
+                $output->writeln('There is no entry in your library with the id: ' . $keyArgument . '.');
+                return 0;
+            }
+            $count = 0;
+            foreach ($config as $key => $WhyBother) {
+                if ($count == intval($keyArgument)) {
+                    $keyArgument = $key;
+                    continue;
+                }
+                $count++;
+            }
         }
 
         $totp = new TOTP();

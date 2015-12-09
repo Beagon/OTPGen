@@ -1,6 +1,6 @@
 {
     "name": "beagon/OTPGen",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Command line tool to generate an OTP token",
     "require": {
         "spomky-labs/otphp": "^6.0",

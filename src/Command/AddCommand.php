@@ -96,11 +96,11 @@ class AddCommand extends BaseCommand
             $data = array_merge($config, $data);
         }
 
-        $otpFile = fopen(OTPGEN_WORKING_DIR . '.otp', 'w') or die('Wasn\'t able to open or create .otp are you sure I have enough permissions?');
+        $otpFile = fopen(OTPGEN_WORKING_DIR . '.otp', 'w') or die('Wasn\'t able to open or create library are you sure I have enough permissions?');
         fwrite($otpFile, OTPGen::toYAML($data));
         fclose($otpFile);
 
-        $output->writeln('Added ' . $name . ' to .otp.');
+        $output->writeln('Added ' . $name . ' to your library.');
         return 0;
     }
 }

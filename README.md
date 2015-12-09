@@ -3,8 +3,14 @@ This project was made because I found it a hassle to keep grabbing my phone to g
 
 ## How to use it
 * Clone the project
-* Do composer install 
-* Create a .otp file and fill it with your tokens in YAML format e.g. `"github": "Your token here" `
+* Do composer instal
 * Make the otpgen file executable `chmod +x otpgen`
-* Now you're ready to use it! 
-* Use `./otpgen code github` and you will get a token back!
+* Now you're ready to use it!
+* Use `./otpgen add` to create your library and add your first token!
+
+
+## Commands
+
+* Add an OTP token and initializes your library: `./otpgen add`
+* Get an OTP code: `./otpgen code (NAME) or (ID)`
+* List your OTP code library: `./otpgen library`
