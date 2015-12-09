@@ -15,3 +15,6 @@ This project was made because I found it a hassle to keep grabbing my phone to g
 * Delete a library entry: `./otpgen delete (NAME) or (ID)`
 * Get an OTP code: `./otpgen code (NAME) or (ID)`
 * List your OTP code library: `./otpgen library`
+
+* Set your own working directory:
+By default the working directory is the root directory of the application, you can define your own working directory by setting a enviroment variable called `OTPGEN_DIR`.

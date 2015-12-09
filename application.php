@@ -28,8 +28,12 @@ if (version_compare(phpversion(), '5.3.0') >= 0) {
  * Specify the working directory, if it hasn't been set yet.
  */
 if (!defined('OTPGEN_WORKING_DIR')) {
-    $cwd = getcwd() . DIRECTORY_SEPARATOR;
-    $cwd = str_replace('\\', '/', $cwd);
+    if (!getenv("OTPGEN_DIR")) {
+        $cwd = getcwd() . DIRECTORY_SEPARATOR;
+        $cwd = str_replace('\\', '/', $cwd);
+    } else {
+        $cwd = getenv("OTPGEN_DIR");
+    }
     define('OTPGEN_WORKING_DIR', $cwd);
 }
 
