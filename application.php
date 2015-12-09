@@ -29,7 +29,7 @@ if (version_compare(phpversion(), '5.3.0') >= 0) {
  */
 if (!defined('OTPGEN_WORKING_DIR')) {
     if (!getenv("OTPGEN_DIR")) {
-        $cwd = getcwd() . DIRECTORY_SEPARATOR;
+        $cwd = dirname(__FILE__). DIRECTORY_SEPARATOR;
         $cwd = str_replace('\\', '/', $cwd);
     } else {
         $cwd = rtrim(getenv("OTPGEN_DIR"), DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR;
