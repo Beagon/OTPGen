@@ -83,7 +83,7 @@ class AddCommand extends BaseCommand
 
         $data = array(
             $name => array(
-                'token' => $name,
+                'token' => $token,
                 'digest' => $digest,
                 'size' => $size,
                 'interval' => $interval
